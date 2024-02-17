@@ -1,28 +1,31 @@
 <section class="login flex justify-center pt-24">
     <div class="w-full max-w-xs">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 pt-6 pb-8 mb-4" action="">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 pt-6 pb-8 mb-4" action=" /register" method="POST">
+            <% if(messages.error) { %>
+            <span class="text-red-500 text-sm"><%= messages.error  %></span>
+            <% } %>
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-4" for="email">
+                <label class="block text-gray-700 text-sm font-bold mb-4" for="userame">
                     Name 
                 </label>
-                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" placeholder="Name">
+                <input type="text" value="<%= messages.name %>" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" placeholder="Name">
             </div>
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-4" for="email">
+                <label class="block text-gray-700 text-sm font-bold mb-4" for="userame">
                     Email 
                 </label>
-                <input type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" placeholder="Email">
+                <input type="email" value="<%= messages.email %>" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="userame" placeholder="Email">
             </div>
             <div class="mb-6">
                 <label for="password" class="block text-gray-700 text-sm font-bold mb-2 ">
                     Password
                 </label>
-                <input type="password" id="password" placeholder="****************" class="shadow-appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 focus:outline-none focus:shadow-outline">
+                <input type="password" name="password" id="password" placeholder="****************" class="shadow-appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 focus:outline-none focus:shadow-outline">
                 <p class="text-red-500 text-xs italic"></p>
             </div>
             <div class="flex items-center justify-between">
-                <button class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                    Login
+                <button class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Register
                 </button>
             <a href="/login" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
                 Already have an account
