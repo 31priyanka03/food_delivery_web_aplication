@@ -28,6 +28,7 @@ function initRoutes(app){
 ///admin routes
     app.get('/admin/orders',admin, AdminOrderController().index)
     app.post('/admin/order/status',admin, StatusController().update)
+
 }
 
 

@@ -13,7 +13,7 @@ const MongoStore = require('connect-mongo');
 const Emitter = require('events')
 
 // Database connection
-const url = "mongodb://localhost/pizza";
+const url = "mongodb://localhost/pizza"
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -75,6 +75,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/resources/views'));
 
 require('./routes/web')(app);
+app.use((req,res) =>{
+    res.status(404).send('<h1>404,Page not found</h1>')
+})
 
 // Listen on the specified port
 const server = app.listen(PORT, () => {
